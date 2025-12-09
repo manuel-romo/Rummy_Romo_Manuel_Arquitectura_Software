@@ -6,11 +6,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>Interfaces</module>
         <module>Conexion</module>
         <module>DirectorioJugadores</module>
-        <module>Servidor</module>
-        <module>DTORummy</module>
         <module>Comandos</module>
         <module>Serializador</module>
         <module>Deserializador</module>
@@ -18,6 +15,11 @@
         <module>EnsambladorCliente</module>
         <module>EnsambladorServidor</module>
         <module>Mvc</module>
+        <module>InterfacesPipesFilters</module>
+        <module>InterfacesComandos</module>
+        <module>InterfacesConexion</module>
+        <module>Dtos</module>
+        <module>ObjetosNegocio</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

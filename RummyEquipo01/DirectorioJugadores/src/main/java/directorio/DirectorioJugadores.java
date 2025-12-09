@@ -1,12 +1,12 @@
 package directorio;
 
-import comandoAgregarDireccionJugador.ComandoAgregarDireccionJugador;
-import comandoEnvolvente.ComandoEnvolvente;
-import comandosSolicitud.CommandType;
-import interfaces.ICommand;
+import comandos.directorio.ComandoAgregarDireccionJugador;
+import comandos.envolventes.ComandoEnvolvente;
+import enumeradores.TipoComando;
 import interfaces.IDispatcher;
 import interfaces.IFiltro;
 import java.util.Map;
+import interfaces.IComando;
 
 /**
  *
@@ -41,13 +41,13 @@ public class DirectorioJugadores implements IFiltro {
     }
 
     @Override
-    public void ejecutar(ICommand comando) {
+    public void ejecutar(IComando comando) {
         
-        CommandType tipoComando = CommandType.fromNombre(comando.getType());
+        TipoComando tipoComando = TipoComando.fromNombre(comando.getTipo());
         
         switch (tipoComando) {
 
-            case CommandType.COMANDO_AGREGAR_DIRECCION_JUGADOR:
+            case TipoComando.COMANDO_AGREGAR_DIRECCION_JUGADOR:
 
                 ComandoAgregarDireccionJugador comandoAgregarDireccionJugador = (ComandoAgregarDireccionJugador) comando;
 
@@ -55,7 +55,7 @@ public class DirectorioJugadores implements IFiltro {
 
                 break;
 
-            case CommandType.COMANDO_ENVOLVENTE:
+            case TipoComando.COMANDO_ENVOLVENTE:
 
                 ComandoEnvolvente envolvente = (ComandoEnvolvente) comando;
 

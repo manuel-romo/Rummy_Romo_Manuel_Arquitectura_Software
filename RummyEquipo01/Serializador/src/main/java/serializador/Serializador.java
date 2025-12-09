@@ -2,9 +2,9 @@
 package serializador;
 
 import com.google.gson.Gson;
-import comandoEnvolvente.ComandoEnvolvente;
-import interfaces.ICommand;
+import comandos.envolventes.ComandoEnvolvente;
 import interfaces.IFiltro;
+import interfaces.IComando;
 
 /**
  *
@@ -15,7 +15,7 @@ public class Serializador implements IFiltro {
     private IFiltro filtroSiguiente;
     private final Gson gson = new Gson();
     
-    private String serializarAccion(ICommand command) {
+    private String serializarAccion(IComando command) {
         return gson.toJson(command);
     }
 
@@ -29,9 +29,9 @@ public class Serializador implements IFiltro {
      * @param comando instancia de comando 
      */
     @Override
-    public void ejecutar(ICommand comando) {
+    public void ejecutar(IComando comando) {
         String accion = serializarAccion(comando);
-        ICommand comandoEnvolvente = new ComandoEnvolvente(accion,comando.getNombreJugador());
+        IComando comandoEnvolvente = new ComandoEnvolvente(accion,comando.getNombreJugador());
        
 
         if (filtroSiguiente != null) {

@@ -1,45 +1,45 @@
 
 package fachada;
 
-import comandosRespuesta.ComandoCambioTurno;
-import comandosRespuesta.ComandoCargarJugadores;
-import comandosRespuesta.ComandoFinPartida;
-import comandosRespuesta.ComandoIniciarTurno;
-import comandosRespuesta.ComandoJugadorAbandonoPartida;
-import comandosRespuesta.ComandoJugadorPartidaGanada;
-import comandosRespuesta.ComandoPartidaGanada;
-import comandosRespuesta.ComandoRespuestaAbandonar;
-import comandosRespuesta.ComandoDecisionIniciarJuego;
-import comandosRespuesta.ComandoNuevaSolicitudIniciarJuego;
-import comandosRespuesta.ComandoActualizarJugadoresInicioJuego;
-import comandosRespuesta.ComandoRespuestaConfirmacionSolicitarFin;
-import comandosRespuesta.ComandoRespuestaIniciarJuego;
-import comandosRespuesta.ComandoRespuestaMovimiento;
-import comandosRespuesta.ComandoRespuestaReestablecer;
-import comandosRespuesta.ComandoRespuestaSolicitarFin;
-import comandosRespuesta.ComandoRespuestaTomarFicha;
-import comandosRespuesta.ComandoTableroInvalido;
-import comandosSolicitud.ComandoAbandonar;
-import comandosSolicitud.ComandoAgregarFichasJugador;
-import comandosSolicitud.ComandoAgregarFichasTablero;
-import comandosSolicitud.ComandoAgregarFichasTableroGrupo;
-import comandosSolicitud.ComandoConfirmacionAbandonar;
-import comandosSolicitud.ComandoConfirmacionEnvioIniciarJuego;
-import comandosSolicitud.ComandoConfirmacionIniciarJuego;
-import comandosSolicitud.ComandoConfirmacionSolicitarFin;
-import comandosSolicitud.ComandoIniciarJuego;
-import comandosSolicitud.ComandoQuitarFichasJugador;
-import comandosSolicitud.ComandoQuitarFichasTablero;
-import comandosSolicitud.ComandoReestablecerTablero;
-import comandosSolicitud.ComandoSeleccionarFichasTablero;
-import comandosSolicitud.ComandoSolicitarFin;
-import comandosSolicitud.ComandoTerminarTurno;
-import comandosSolicitud.ComandoTomarFicha;
-import comandosSolicitud.CommandType;
+import comandos.respuesta.ComandoCambioTurno;
+import comandos.respuesta.ComandoCargarJugadores;
+import comandos.respuesta.ComandoFinPartida;
+import comandos.respuesta.ComandoIniciarTurno;
+import comandos.respuesta.ComandoJugadorAbandonoPartida;
+import comandos.respuesta.ComandoJugadorPartidaGanada;
+import comandos.respuesta.ComandoPartidaGanada;
+import comandos.respuesta.ComandoRespuestaAbandonar;
+import comandos.respuesta.ComandoDecisionIniciarJuego;
+import comandos.respuesta.ComandoNuevaSolicitudIniciarJuego;
+import comandos.respuesta.ComandoActualizarJugadoresInicioJuego;
+import comandos.respuesta.ComandoRespuestaConfirmacionSolicitarFin;
+import comandos.respuesta.ComandoRespuestaIniciarJuego;
+import comandos.respuesta.ComandoRespuestaMovimiento;
+import comandos.respuesta.ComandoRespuestaReestablecer;
+import comandos.respuesta.ComandoRespuestaSolicitarFin;
+import comandos.respuesta.ComandoRespuestaTomarFicha;
+import comandos.respuesta.ComandoTableroInvalido;
+import comandos.solicitud.ComandoAbandonar;
+import comandos.solicitud.ComandoAgregarFichasJugador;
+import comandos.solicitud.ComandoAgregarFichasTablero;
+import comandos.solicitud.ComandoAgregarFichasTableroGrupo;
+import comandos.solicitud.ComandoConfirmacionAbandonar;
+import comandos.solicitud.ComandoConfirmacionEnvioIniciarJuego;
+import comandos.solicitud.ComandoConfirmacionIniciarJuego;
+import comandos.solicitud.ComandoConfirmacionSolicitarFin;
+import comandos.solicitud.ComandoIniciarJuego;
+import comandos.solicitud.ComandoQuitarFichasJugador;
+import comandos.solicitud.ComandoQuitarFichasTablero;
+import comandos.solicitud.ComandoReestablecerTablero;
+import comandos.solicitud.ComandoSeleccionarFichasTablero;
+import comandos.solicitud.ComandoSolicitarFin;
+import comandos.solicitud.ComandoTerminarTurno;
+import comandos.solicitud.ComandoTomarFicha;
+import enumeradores.TipoComando;
 import ejercerturno.modelo.ModeloEjercerTurno;
 import iniciarpartida.modelo.ModeloInicioPartida;
-import interfaces.ICommand;
 import interfaces.IFiltro;
+import interfaces.IComando;
 
 /**
  *
@@ -86,7 +86,7 @@ public class FachadaMvc implements IFiltro{
     
     public void seleccionarFichasTablero(Integer[] posicionesFichas, String nombreJugador) {
         
-        ICommand comandoSeleccionarFichasTablero = new ComandoSeleccionarFichasTablero(posicionesFichas, nombreJugador);
+        IComando comandoSeleccionarFichasTablero = new ComandoSeleccionarFichasTablero(posicionesFichas, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoSeleccionarFichasTablero);
         
@@ -94,7 +94,7 @@ public class FachadaMvc implements IFiltro{
     
     public void quitarFichasJugador(Integer[] posicionesFichas, String nombreJugador) {
         
-        ICommand comandoQuitarFichasJugador = new ComandoQuitarFichasJugador(posicionesFichas, nombreJugador);
+        IComando comandoQuitarFichasJugador = new ComandoQuitarFichasJugador(posicionesFichas, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoQuitarFichasJugador);
         
@@ -102,7 +102,7 @@ public class FachadaMvc implements IFiltro{
     
     public void quitarFichasTablero(Integer[] idsFichas, String nombreJugador) {
         
-        ICommand comandoQuitarFichasTablero = new ComandoQuitarFichasTablero(idsFichas, nombreJugador);
+        IComando comandoQuitarFichasTablero = new ComandoQuitarFichasTablero(idsFichas, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoQuitarFichasTablero);
 
@@ -110,7 +110,7 @@ public class FachadaMvc implements IFiltro{
     
     public void agregarFichasJugador(Integer[] idsFichas, String nombreJugador) {
         
-        ICommand comandoAgregarFichasJugador = new ComandoAgregarFichasJugador(idsFichas, nombreJugador);
+        IComando comandoAgregarFichasJugador = new ComandoAgregarFichasJugador(idsFichas, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoAgregarFichasJugador);
         
@@ -118,7 +118,7 @@ public class FachadaMvc implements IFiltro{
     
     public void agregarFichasTablero(Integer[] idsFichas, Integer[] idsFichasGrupo, String nombreJugador) {
         
-        ICommand comandoAgregarFichasTableroGrupo = new ComandoAgregarFichasTableroGrupo(idsFichas, idsFichasGrupo, nombreJugador);
+        IComando comandoAgregarFichasTableroGrupo = new ComandoAgregarFichasTableroGrupo(idsFichas, idsFichasGrupo, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoAgregarFichasTableroGrupo);
         
@@ -126,7 +126,7 @@ public class FachadaMvc implements IFiltro{
     
      public void agregarFichasTablero(Integer[] idsFichas, String nombreJugador) {
         
-        ICommand comandoAgregarFichasTablero = new ComandoAgregarFichasTablero(idsFichas, nombreJugador);
+        IComando comandoAgregarFichasTablero = new ComandoAgregarFichasTablero(idsFichas, nombreJugador);
         
         filtroSiguiente.ejecutar(comandoAgregarFichasTablero);
         
@@ -134,7 +134,7 @@ public class FachadaMvc implements IFiltro{
      
      public void tomarFicha(String nombreJugador){
         
-        ICommand comandoTomarFicha = new ComandoTomarFicha(nombreJugador);
+        IComando comandoTomarFicha = new ComandoTomarFicha(nombreJugador);
         
         filtroSiguiente.ejecutar(comandoTomarFicha);
         
@@ -142,14 +142,14 @@ public class FachadaMvc implements IFiltro{
      
     public void reestablecerTablero(String nombreJugador){
         
-        ICommand comandoReestablecerTablero = new ComandoReestablecerTablero(nombreJugador);
+        IComando comandoReestablecerTablero = new ComandoReestablecerTablero(nombreJugador);
         
         filtroSiguiente.ejecutar(comandoReestablecerTablero);
     }
      
     public void terminarTurno(String nombreJugador) {
         
-        ICommand comandoFinalizarTurno = new ComandoTerminarTurno(nombreJugador);
+        IComando comandoFinalizarTurno = new ComandoTerminarTurno(nombreJugador);
         filtroSiguiente.ejecutar(comandoFinalizarTurno);
 
     }
@@ -189,15 +189,15 @@ public class FachadaMvc implements IFiltro{
     
     
     @Override
-    public void ejecutar(ICommand comando) {
+    public void ejecutar(IComando comando) {
 
         
-        CommandType tipoComando = CommandType.fromNombre(comando.getType());
+        TipoComando tipoComando = TipoComando.fromNombre(comando.getTipo());
         
         switch (tipoComando) {
             
             // Comandos MVC Ejercer Turno
-            case CommandType.INICIAR_TURNO:
+            case TipoComando.INICIAR_TURNO:
                 
                 ComandoIniciarTurno comandoIniciarTurno = (ComandoIniciarTurno) comando;
                 modeloEjercerTurno.iniciarTurno( 
@@ -206,7 +206,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.CAMBIO_TURNO:
+            case TipoComando.CAMBIO_TURNO:
                 
                 ComandoCambioTurno comandoCambioTurno = (ComandoCambioTurno) comando;
                 modeloEjercerTurno.cambiarTurno(
@@ -215,7 +215,7 @@ public class FachadaMvc implements IFiltro{
 
                 break;
                 
-            case CommandType.RESPUESTA_MOVIMIENTO:
+            case TipoComando.RESPUESTA_MOVIMIENTO:
                 
                 ComandoRespuestaMovimiento comandoRespuestaMovimiento = (ComandoRespuestaMovimiento) comando;
                 
@@ -226,7 +226,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.COMANDO_TABLERO_INVALIDO:
+            case TipoComando.COMANDO_TABLERO_INVALIDO:
                 
                 ComandoTableroInvalido comandoTableroInvalido = (ComandoTableroInvalido) comando;
                 
@@ -236,7 +236,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.RESPUESTA_TOMAR_FICHA:
+            case TipoComando.RESPUESTA_TOMAR_FICHA:
                 
                 ComandoRespuestaTomarFicha comandoRespuestaTomarFicha = (ComandoRespuestaTomarFicha) comando;
                 modeloEjercerTurno.tomarFicha(
@@ -244,7 +244,7 @@ public class FachadaMvc implements IFiltro{
 
                 break;
                 
-            case CommandType.RESPUESTA_REESTABLECER:
+            case TipoComando.RESPUESTA_REESTABLECER:
                 
                 ComandoRespuestaReestablecer comandoRespuestaReestablecer = (ComandoRespuestaReestablecer) comando;
                 modeloEjercerTurno.reestablecerTablero(
@@ -253,7 +253,7 @@ public class FachadaMvc implements IFiltro{
                 break;
                 
                 
-            case CommandType.COMANDO_RESPUESTA_ABANDONAR:
+            case TipoComando.COMANDO_RESPUESTA_ABANDONAR:
                 
                 ComandoRespuestaAbandonar comandoRespuestaAbandonar = (ComandoRespuestaAbandonar) comando;
                 
@@ -261,7 +261,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                  
-            case CommandType.COMANDO_JUGADOR_ABANDONO:
+            case TipoComando.COMANDO_JUGADOR_ABANDONO:
                 
                 ComandoJugadorAbandonoPartida comandoJugadorAbandonoPartida = (ComandoJugadorAbandonoPartida) comando;
                 
@@ -270,7 +270,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.COMANDO_RESPUESTA_SOLICITAR_FIN:
+            case TipoComando.COMANDO_RESPUESTA_SOLICITAR_FIN:
                 
                 ComandoRespuestaSolicitarFin comandoRespuestaSolicitarFin = (ComandoRespuestaSolicitarFin) comando;
                 
@@ -280,7 +280,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.COMANDO_RESPUESTA_CONFIRMACION_SOLICITAR_FIN:
+            case TipoComando.COMANDO_RESPUESTA_CONFIRMACION_SOLICITAR_FIN:
                 
                 ComandoRespuestaConfirmacionSolicitarFin comandoRespuestaConfirmacionSolicitarFin = (ComandoRespuestaConfirmacionSolicitarFin) comando;
                 
@@ -290,7 +290,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.COMANDO_FIN_PARTIDA:
+            case TipoComando.COMANDO_FIN_PARTIDA:
                 
                 ComandoFinPartida comandoFinPartida = (ComandoFinPartida) comando;
                 
@@ -298,7 +298,7 @@ public class FachadaMvc implements IFiltro{
                 
                 break;
                 
-            case CommandType.COMANDO_PARTIDA_GANADA:
+            case TipoComando.COMANDO_PARTIDA_GANADA:
                 
                 ComandoPartidaGanada comandoPartidaGanada = (ComandoPartidaGanada) comando;
                 
@@ -306,7 +306,7 @@ public class FachadaMvc implements IFiltro{
                  
                 break;
                 
-            case CommandType.COMANDO_JUGADOR_PARTIDA_GANADA:
+            case TipoComando.COMANDO_JUGADOR_PARTIDA_GANADA:
                 
                 ComandoJugadorPartidaGanada comandoJugadorPartidaGanada = (ComandoJugadorPartidaGanada) comando;
                 
@@ -317,7 +317,7 @@ public class FachadaMvc implements IFiltro{
             
             // Comandos MVC InicioPartida
                 
-            case CommandType.COMANDO_CARGAR_JUGADORES:
+            case TipoComando.COMANDO_CARGAR_JUGADORES:
                 
                 ComandoCargarJugadores comandoCargarJugadores = (ComandoCargarJugadores) comando;
                 
@@ -326,7 +326,7 @@ public class FachadaMvc implements IFiltro{
                  
                 break;
                 
-            case CommandType.COMANDO_NUEVA_SOLICITUD_INICIAR_JUEGO:
+            case TipoComando.COMANDO_NUEVA_SOLICITUD_INICIAR_JUEGO:
                 
                 ComandoNuevaSolicitudIniciarJuego comandoNuevaSolicitudIniciarJuego = (ComandoNuevaSolicitudIniciarJuego) comando;
                 
@@ -335,7 +335,7 @@ public class FachadaMvc implements IFiltro{
                  
                 break;
                 
-            case CommandType.COMANDO_ACTUALIZAR_JUGADORES_INICIO_JUEGO:
+            case TipoComando.COMANDO_ACTUALIZAR_JUGADORES_INICIO_JUEGO:
                 
                 ComandoActualizarJugadoresInicioJuego comandoActualizarJugadoresInicioJuego = (ComandoActualizarJugadoresInicioJuego) comando;
                 
@@ -344,7 +344,7 @@ public class FachadaMvc implements IFiltro{
                  
                 break;
                 
-            case CommandType.COMANDO_RESPUESTA_INICIAR_JUEGO:
+            case TipoComando.COMANDO_RESPUESTA_INICIAR_JUEGO:
                 
                 ComandoRespuestaIniciarJuego comandoRespuestaIniciarJuego = (ComandoRespuestaIniciarJuego) comando;
                 
@@ -352,7 +352,7 @@ public class FachadaMvc implements IFiltro{
                  
                 break;
                 
-            case CommandType.COMANDO_DECISION_INICIAR_JUEGO:
+            case TipoComando.COMANDO_DECISION_INICIAR_JUEGO:
                 
                 ComandoDecisionIniciarJuego comandoDecisionIniciarJuego = (ComandoDecisionIniciarJuego) comando;
                 

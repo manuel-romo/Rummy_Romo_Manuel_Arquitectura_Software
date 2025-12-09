@@ -5,46 +5,46 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
-import comandosRespuesta.ComandoCambioTurno;
-import comandosRespuesta.ComandoCargarJugadores;
-import comandosRespuesta.ComandoFinPartida;
-import comandosRespuesta.ComandoIniciarTurno;
-import comandosRespuesta.ComandoJugadorAbandonoPartida;
-import comandosRespuesta.ComandoJugadorPartidaGanada;
-import comandosRespuesta.ComandoPartidaGanada;
-import comandosRespuesta.ComandoRespuestaAbandonar;
-import comandosRespuesta.ComandoDecisionIniciarJuego;
-import comandosRespuesta.ComandoNuevaSolicitudIniciarJuego;
-import comandosRespuesta.ComandoActualizarJugadoresInicioJuego;
-import comandosRespuesta.ComandoRespuestaConfirmacionSolicitarFin;
-import comandosRespuesta.ComandoRespuestaIniciarJuego;
-import comandosRespuesta.ComandoRespuestaReestablecer;
-import comandosRespuesta.ComandoRespuestaMovimiento;
-import comandosRespuesta.ComandoRespuestaSolicitarFin;
-import comandosRespuesta.ComandoRespuestaTomarFicha;
-import comandosRespuesta.ComandoTableroInvalido;
-import comandosSolicitud.ComandoAbandonar;
-import comandosSolicitud.ComandoAgregarFichasJugador;
-import comandosSolicitud.ComandoAgregarFichasTablero;
-import comandosSolicitud.ComandoAgregarFichasTableroGrupo;
-import comandosSolicitud.ComandoConfirmacionAbandonar;
-import comandosSolicitud.ComandoConfirmacionEnvioIniciarJuego;
-import comandosSolicitud.ComandoConfirmacionIniciarJuego;
-import comandosSolicitud.ComandoConfirmacionSolicitarFin;
-import comandosSolicitud.ComandoIniciarJuego;
-import comandosSolicitud.ComandoQuitarFichasJugador;
-import comandosSolicitud.ComandoQuitarFichasTablero;
-import comandosSolicitud.ComandoReestablecerTablero;
-import comandosSolicitud.ComandoSeleccionarFichasTablero;
-import comandosSolicitud.ComandoSolicitarFin;
-import comandosSolicitud.ComandoTerminarTurno;
-import comandosSolicitud.ComandoTomarFicha;
+import comandos.respuesta.ComandoActualizarJugadoresInicioJuego;
+import comandos.respuesta.ComandoCambioTurno;
+import comandos.respuesta.ComandoCargarJugadores;
+import comandos.respuesta.ComandoDecisionIniciarJuego;
+import comandos.respuesta.ComandoFinPartida;
+import comandos.respuesta.ComandoIniciarTurno;
+import comandos.respuesta.ComandoJugadorAbandonoPartida;
+import comandos.respuesta.ComandoJugadorPartidaGanada;
+import comandos.respuesta.ComandoNuevaSolicitudIniciarJuego;
+import comandos.respuesta.ComandoPartidaGanada;
+import comandos.respuesta.ComandoRespuestaAbandonar;
+import comandos.respuesta.ComandoRespuestaConfirmacionSolicitarFin;
+import comandos.respuesta.ComandoRespuestaIniciarJuego;
+import comandos.respuesta.ComandoRespuestaMovimiento;
+import comandos.respuesta.ComandoRespuestaReestablecer;
+import comandos.respuesta.ComandoRespuestaSolicitarFin;
+import comandos.respuesta.ComandoRespuestaTomarFicha;
+import comandos.respuesta.ComandoTableroInvalido;
+import comandos.solicitud.ComandoAbandonar;
+import comandos.solicitud.ComandoAgregarFichasJugador;
+import comandos.solicitud.ComandoAgregarFichasTablero;
+import comandos.solicitud.ComandoAgregarFichasTableroGrupo;
+import comandos.solicitud.ComandoConfirmacionAbandonar;
+import comandos.solicitud.ComandoConfirmacionEnvioIniciarJuego;
+import comandos.solicitud.ComandoConfirmacionIniciarJuego;
+import comandos.solicitud.ComandoConfirmacionSolicitarFin;
+import comandos.solicitud.ComandoIniciarJuego;
+import comandos.solicitud.ComandoQuitarFichasJugador;
+import comandos.solicitud.ComandoQuitarFichasTablero;
+import comandos.solicitud.ComandoReestablecerTablero;
+import comandos.solicitud.ComandoSeleccionarFichasTablero;
+import comandos.solicitud.ComandoSolicitarFin;
+import comandos.solicitud.ComandoTerminarTurno;
+import comandos.solicitud.ComandoTomarFicha;
 import dto.FichaDTO;
-import interfaces.ICommand;
 import interfaces.IFiltro;
 import interfaces.IReceptorExterno;
 import java.util.HashMap;
 import java.util.Map;
+import interfaces.IComando;
 /**
  *
  * @author ramon
@@ -53,7 +53,7 @@ public class Deserializador implements IReceptorExterno{
     
     private IFiltro filtroSiguiente;
     private final Gson gson;
-    private final Map<String, Class<? extends ICommand>> registroComandos;
+    private final Map<String, Class<? extends IComando>> registroComandos;
 
     public Deserializador() {
 
@@ -117,7 +117,7 @@ public class Deserializador implements IReceptorExterno{
      * @param Comando serializado que se deserializa.
      * @return 
      */
-    private ICommand deserializarRespuesta(String respuesta) {
+    private IComando deserializarRespuesta(String respuesta) {
         try {
 
             JsonObject objetoJson = JsonParser.parseString(respuesta).getAsJsonObject();
@@ -128,7 +128,7 @@ public class Deserializador implements IReceptorExterno{
             
             String type = objetoJson.get("type").getAsString();
             
-            Class<? extends ICommand> claseComando = registroComandos.get(type);
+            Class<? extends IComando> claseComando = registroComandos.get(type);
 
             if (claseComando != null) {
                 

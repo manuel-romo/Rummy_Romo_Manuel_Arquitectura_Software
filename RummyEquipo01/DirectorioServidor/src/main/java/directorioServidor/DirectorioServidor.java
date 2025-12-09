@@ -1,9 +1,9 @@
 package directorioServidor;
 
-import comandoEnvolvente.ComandoEnvolvente;
-import interfaces.ICommand;
+import comandos.envolventes.ComandoEnvolvente;
 import interfaces.IDispatcher;
 import interfaces.IFiltro;
+import interfaces.IComando;
 
 /**
  *
@@ -23,7 +23,7 @@ public class DirectorioServidor implements IFiltro {
     }
 
     @Override
-    public void ejecutar(ICommand comando) {
+    public void ejecutar(IComando comando) {
         ComandoEnvolvente envolvente = (ComandoEnvolvente) comando;
         dispatcher.agregarMensaje(envolvente.getMensajeSerializado(), direccion);
     }
