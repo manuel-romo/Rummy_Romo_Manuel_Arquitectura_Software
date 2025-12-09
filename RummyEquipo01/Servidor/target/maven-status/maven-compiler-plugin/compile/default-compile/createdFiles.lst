@@ -1,9 +1,9 @@
 objetos_negocio\Partida.class
 objetos_negocio\Ficha.class
+fabrica\FabricaGrupos.class
 objetos_negocio\FachadaObjetosNegocio.class
 objetos_negocio\Grupo.class
 objetos_negocio\Partida$1.class
-fabricaGrupos\FabricaGrupos.class
 objetos_negocio\FichaNormal.class
 objetos_negocio\GrupoSecuencia.class
 objetos_negocio\Tablero.class

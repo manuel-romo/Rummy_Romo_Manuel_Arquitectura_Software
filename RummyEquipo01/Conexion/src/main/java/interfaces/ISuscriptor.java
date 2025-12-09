@@ -1,7 +1,7 @@
 
 package interfaces;
 
-import conexion.Mensaje;
+import mensajes.Mensaje;
 
 /**
  *

@@ -59,10 +59,8 @@ public class EnsambladorCliente {
         System.out.print("Ingrese el nombre del Jugador: ");
         String nombreJugador = escaner.nextLine();
         
-//        System.out.print("Ingrese la dirección IP del servidor: ");
-//        String ipServidor = escaner.nextLine();
-
-        String ipServidor = "127.0.0.1";
+        System.out.print("Ingrese la dirección IP del servidor: ");
+        String ipServidor = escaner.nextLine();
         
         String puertoCliente = null;
         

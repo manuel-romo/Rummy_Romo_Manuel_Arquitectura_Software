@@ -1,7 +1,6 @@
 
 package cliente;
 
-import conexion.Mensaje;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;

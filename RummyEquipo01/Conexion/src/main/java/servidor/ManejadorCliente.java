@@ -1,7 +1,7 @@
 
 package servidor;
 
-import conexion.Mensaje;
+import mensajes.Mensaje;
 import interfaces.IReceptor;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,6 @@ public class ManejadorCliente implements Runnable {
     public void run() {
 
         String ipCliente = socketCliente.getInetAddress().getHostAddress();
-        int puertoCliente = socketCliente.getPort();
         System.out.println("Hilo iniciado para: " + ipCliente);
 
         
@@ -34,9 +33,7 @@ public class ManejadorCliente implements Runnable {
             
             while ((lineaDeMensaje = in.readLine()) != null) {
 
-                Mensaje mensaje = new Mensaje(ipCliente, puertoCliente, lineaDeMensaje);
-                
-                receptor.agregarMensaje(mensaje.getContenido());
+                receptor.agregarMensaje(lineaDeMensaje);
 
             }
             

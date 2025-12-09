@@ -1,7 +1,7 @@
 
 package cliente;
 
-import conexion.Mensaje;
+import mensajes.Mensaje;
 import interfaces.IDispatcher;
 import interfaces.ISuscriptor;
 import java.util.concurrent.BlockingQueue;
@@ -13,11 +13,7 @@ public class ColaMensajesEnviar implements IDispatcher, Runnable{
     private BlockingQueue<Mensaje> colaMensajes = new LinkedBlockingDeque<Mensaje>();
     
     private ISuscriptor suscriptor;
-
-    public ColaMensajesEnviar() {
-        this.suscriptor = suscriptor;
-    }
-
+    
     @Override
     public void agregarMensaje(String mensaje, String[] direccion) {
         

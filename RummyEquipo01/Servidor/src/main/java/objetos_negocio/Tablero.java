@@ -36,7 +36,7 @@ import dto.TableroDTO;
 import enumeradores.ColorFicha;
 import enumeradores.ColorFichaDTO;
 import excepciones.RummyException;
-import fabricaGrupos.FabricaGrupos;
+import fabrica.FabricaGrupos;
 import interfaces.ICommand;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -232,21 +232,16 @@ public class Partida {
     private void solicitarInicioJuego(String nombreJugador){
             
         if(jugadorExiste(nombreJugador)){
-            for(Jugador jugador: jugadores){
             
-                if(jugador.getNombre().equals(nombreJugador)){
-                    
-                    ComandoRespuestaIniciarJuego comandoRespuestaIniciarJuego = 
-                            new ComandoRespuestaIniciarJuego(
-                                    nombreJugador, 
-                                    MENSAJE_CONFIRMACION_INICIO_JUEGO);
-                    
-                    fachada.enviarComando(comandoRespuestaIniciarJuego);
-                    
-                    return;
+            ComandoRespuestaIniciarJuego comandoRespuestaIniciarJuego = 
+                new ComandoRespuestaIniciarJuego(
+                        nombreJugador, 
+                        MENSAJE_CONFIRMACION_INICIO_JUEGO);
 
-                }
-            }
+            fachada.enviarComando(comandoRespuestaIniciarJuego);
+
+            return;
+
             
         }
             

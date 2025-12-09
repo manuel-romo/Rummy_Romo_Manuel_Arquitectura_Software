@@ -18,9 +18,6 @@ public class DirectorioServidor implements IFiltro {
     private String[] direccion;
     private IDispatcher dispatcher;
 
-    
-    
-    
     public DirectorioServidor(String[] direccion) {
         this.direccion = direccion;
     }

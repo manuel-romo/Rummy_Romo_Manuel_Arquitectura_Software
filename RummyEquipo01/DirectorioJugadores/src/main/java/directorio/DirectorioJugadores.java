@@ -34,7 +34,7 @@ public class DirectorioJugadores implements IFiltro {
         this.dispatcher = dispatcher;
     }
     
-    public void agregarDireccionNombreJugador(String nombreJugador, String[] direccionJugador){
+    private void agregarDireccionNombreJugador(String nombreJugador, String[] direccionJugador){
         
         jugadoresDirecciones.put(nombreJugador, direccionJugador);
         

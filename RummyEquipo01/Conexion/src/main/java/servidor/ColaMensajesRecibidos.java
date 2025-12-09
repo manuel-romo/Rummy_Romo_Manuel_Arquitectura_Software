@@ -12,10 +12,6 @@ public class ColaMensajesRecibidos implements Runnable, IReceptor{
     private IReceptorExterno receptor;
     private boolean estaCorriendo = true;
 
-    public ColaMensajesRecibidos() {
-
-    }
-
     @Override
     public void agregarMensaje(String mensaje) {
         colaMensajesRecibidos.add(mensaje);

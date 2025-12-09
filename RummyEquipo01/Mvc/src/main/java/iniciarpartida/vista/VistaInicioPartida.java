@@ -99,8 +99,6 @@ public class VistaInicioPartida extends JFrame implements ISuscriptor, IReceptor
             
         }
         
-        
-        
     }
 
     @Override

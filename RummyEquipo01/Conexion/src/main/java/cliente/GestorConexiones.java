@@ -1,7 +1,7 @@
 package cliente;
 
 import cliente.Cliente;
-import conexion.Mensaje;
+import mensajes.Mensaje;
 import interfaces.ISuscriptor;
 import java.io.IOException;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public class GestorConexiones implements ISuscriptor{
     }
     
 
-    public void cerrarTodasLasConexiones() {
+    public void cerrarTodasConexiones() {
         for (Cliente cliente: conexionesActivas.values()) {
             cliente.cerrarConexion();
         }

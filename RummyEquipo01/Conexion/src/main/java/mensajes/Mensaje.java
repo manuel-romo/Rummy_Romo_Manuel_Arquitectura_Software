@@ -1,5 +1,5 @@
 
-package conexion;
+package mensajes;
 
 /**
  *

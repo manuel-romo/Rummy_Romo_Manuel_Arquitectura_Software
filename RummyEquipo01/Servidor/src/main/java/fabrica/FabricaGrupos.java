@@ -1,5 +1,5 @@
 
-package fabricaGrupos;
+package fabrica;
 
 import excepciones.RummyException;
 import java.util.List;
