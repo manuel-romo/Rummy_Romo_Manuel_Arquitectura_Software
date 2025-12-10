@@ -2,7 +2,7 @@
 package comandos.respuesta;
 
 import enumeradores.TipoComando;
-import dto.TableroDTO;
+import dtos.TableroDTO;
 import interfaces.IComando;
 
 /**

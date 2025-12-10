@@ -22,7 +22,7 @@ import comandos.solicitud.ComandoSeleccionarFichasTablero;
 import comandos.solicitud.ComandoSolicitarFin;
 import comandos.solicitud.ComandoTerminarTurno;
 import comandos.solicitud.ComandoTomarFicha;
-import dto.JugadorInicioPartidaDTO;
+import dtos.JugadorInicioPartidaDTO;
 import enumeradores.TipoComando;
 import excepciones.RummyException;
 import java.util.LinkedList;

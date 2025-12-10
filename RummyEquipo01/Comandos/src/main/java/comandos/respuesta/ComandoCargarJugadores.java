@@ -1,7 +1,7 @@
 
 package comandos.respuesta;
 
-import dto.JugadorInicioPartidaDTO;
+import dtos.JugadorInicioPartidaDTO;
 import java.util.List;
 import interfaces.IComando;
 

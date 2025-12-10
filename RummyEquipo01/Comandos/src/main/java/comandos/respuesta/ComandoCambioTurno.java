@@ -1,7 +1,7 @@
 
 package comandos.respuesta;
 
-import dto.TableroDTO;
+import dtos.TableroDTO;
 import interfaces.IComando;
 
 

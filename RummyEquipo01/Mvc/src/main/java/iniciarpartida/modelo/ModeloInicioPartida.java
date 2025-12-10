@@ -4,7 +4,7 @@ package iniciarpartida.modelo;
 import definiciones.IModeloInicioPartida;
 import definiciones.IPublicador;
 import definiciones.ISuscriptor;
-import dto.JugadorInicioPartidaDTO;
+import dtos.JugadorInicioPartidaDTO;
 import fachada.FachadaMvc;
 import iniciarpartida.dto.EtapaActual;
 import iniciarpartida.dto.JugadorInicioPartidaPresentacionDTO;
